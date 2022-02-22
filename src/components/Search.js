@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { countries } from '../utils/countries.js';
-import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import InputLabel  from '@mui/material/InputLabel';
 import MenuItem  from '@mui/material/MenuItem';
@@ -9,6 +8,7 @@ import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import Results from './Results';
+import { getMostViewedArticles } from '../service/wikiService.js';
 
 const Search = () => {
     const yesterdayDate = (d => new Date(d.setDate(d.getDate()-1)))(new Date());
@@ -34,20 +34,10 @@ const Search = () => {
         if (searchDate === '') return;
 
         const [year, month, day] = searchDate.split('-');
-        console.log(searchDate);
-        console.log(searchParams)
 
-        const api = (`https://wikimedia.org/api/rest_v1/metrics/pageviews/top-per-country/${searchParams.country}/all-access/${year}/${month}/${day}`);
+        const data = await getMostViewedArticles(searchParams.country, year, month, day);
 
-        const response = await fetch(api);
-
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-
-        const json = await response.json();
-
-        setResults(json.items[0].articles);
+        setResults(data.items[0].articles);
     }
 
     return (
