@@ -3,6 +3,7 @@
 For this take home assignment I built a React App that allows a user to input a date and the number of results they wish to see, and it returns results including the article title as stored by Wikipedia, the rank and views pertaining to that day. If the user would like to see more detail they can click the 'Learn More' button and see the top three days of the month (pertaining to the month the As Of Date is in) as well as a short description of the article as stored by Wikipedia.
 
 In my wikiService.js file, I have three endpoints:
+    
     getMostViewedArticles 
         - takes in three parameters in string format: year, month, day
         - returns a json object with 1000 records 
