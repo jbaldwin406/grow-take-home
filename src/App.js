@@ -1,15 +1,13 @@
 
 import './App.css';
 import NavBar from './components/NavBar';
-import Results from './components/Results';
-import Search from './components/Search';
+import WikiSearch from './components/WikiSearch';
 
 function App() {
   return (
     <div className="App">
         <NavBar />
-        
-        <Search />
+        <WikiSearch />
     </div>
   );
 }

@@ -1,5 +1,12 @@
+* {
+  background-color: '#f4f6f6';
+}
+
+.App {
+  background-color: '#f4f6f6';
+}
 .search-box {
-  margin-top: 16px;
+  margin-top: 32px;
   padding: 8px;
   text-align: center;
   width: 100vw;
@@ -8,4 +15,13 @@
 .results-container {
   width: 100vw;
   text-align: center;
+}
+
+.grid-container {
+  padding: 16px;
+  display: block;
+  width: 50vw;
+  justify-content: center;
+  margin: auto;
+  background-color: '#f4f6f6';
 }
